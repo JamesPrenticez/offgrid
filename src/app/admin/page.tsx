@@ -1,19 +1,19 @@
+import React, { type ReactElement } from 'react'
 import Link from 'next/link';
-import React from 'react'
 
 const plantLinks = [
   {
     icon: "🌱",
-    title: "Trees",
-    url: "plants/trees",
-    description: "View our database of Trees"
+    title: "Data Entry",
+    url: "admin/data_entry",
+    description: "Add to our database"
   }
 ]
 
-const PlantsPage = () => {
+function Admin(): ReactElement {
   return (
     <div>
-      <h1 className='text-7xl'>🌱 Plants</h1>
+      <h1 className='text-7xl'>🔑 Admin</h1>
 
       {plantLinks.map((item) => (
           <Link
@@ -37,4 +37,4 @@ const PlantsPage = () => {
   )
 }
 
-export default PlantsPage;
+export default Admin;

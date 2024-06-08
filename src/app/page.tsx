@@ -1,6 +1,7 @@
-import Image from "next/image";
-import Link from 'next/link'
+import React, { type ReactElement } from 'react';
+import Link from 'next/link';
  
+
 const nav = [
 {
   icon: "🏠",
@@ -29,13 +30,26 @@ const nav = [
 
 ]
 
-export default function Home() {
+export default function Home(): ReactElement {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <h1>
           Welcome
         </h1>
+
+        <Link
+            href='/admin'
+            className="group rounded-lg border border-transparent px-5 py-4 hover:underline "
+            rel="noopener noreferrer"
+          >
+          <h2 className="mb-3 text-sm font-semibold text-red-500">
+            🔑 &nbsp;Admin&nbsp;
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+        </Link>
       </div>
 
       <div className="flex relative">
