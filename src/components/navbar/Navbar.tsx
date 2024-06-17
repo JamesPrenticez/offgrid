@@ -1,6 +1,6 @@
 "use client"
 
-import React, { Children, ReactNode, useEffect, useState, useRef, type ReactElement } from "react";
+import React, { useState, type ReactNode, type ReactElement } from "react";
 import RightNav from "./RightNav";
 import Hamburger from "./Hamburger";
 import CompanyLogo from "./CompanyLogo";
@@ -10,28 +10,6 @@ import Link from "next/link";
 
 function Navbar(): ReactElement {
   const [isOpen, toggleIsOpen] = useState<boolean>(false)
-  const rightNavRef = useRef(null);
-
-  // Prevent scrolling
-  // useEffect(() => {
-  //   const main = document.querySelector("main")
-  //   const header = document.querySelector("header")
-  //   if (isOpen) {
-  //     document.body.classList.add("overflow-hidden");
-  //     if(header) header.classList.add("mr-[18px]")
-  //     if(main) main.classList.add("mr-[18px]")
-  //   } else {
-  //     document.body.classList.remove("overflow-hidden");
-  //     if(header) header.classList.add("mr-[18px]")
-  //     if(main) main.classList.remove("mr-[18px]")
-  //   }
-
-  //   return () => {
-  //     document.body.classList.remove("overflow-hidden");
-  //     if(header) header.classList.add("mr-[18px]")
-  //     if(main) main.classList.remove("mr-[18px]");
-  //   };
-  // }, [isOpen]);
 
   return (
     <>
@@ -41,7 +19,7 @@ function Navbar(): ReactElement {
           <CompanyName />
         </div>
 
-        <div className="flex space-x-4 ml-auto">
+        <div className="flex items-center space-x-4 ml-auto">
           <Link
               href='/admin'
               className="group rounded-lg border border-transparent px-5 py-4 hover:underline "

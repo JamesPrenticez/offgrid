@@ -2,11 +2,12 @@ import Link from 'next/link';
 import React from 'react'
 
 const plantLinks = [
-  {
+  { 
     icon: "🌱",
-    title: "Trees",
+    name: "Trees",
     url: "plants/trees",
-    description: "View our database of Trees"
+    desc: "View our database of Trees",
+    img: ""
   }
 ]
 
@@ -22,13 +23,13 @@ const PlantsPage = () => {
             rel="noopener noreferrer"
           >
             <h2 className="mb-3 text-2xl font-semibold">
-              {item.icon}&nbsp;{item.title}&nbsp;
+              {item.icon}&nbsp;{item.name}&nbsp;
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 -&gt;
               </span>
             </h2>
             <p className="m-0 max-w-[30ch] text-sm opacity-50">
-              {item.description}
+              {item.desc}
             </p>
           </Link>
 

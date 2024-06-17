@@ -29,5 +29,13 @@ export const navigationItems: INavigationItem[] = [
     path: Path.ELECTRICITY,
     desc: "Learn about different ways to generate electricity",
   },
-
 ];
+
+export const plantNavigationItems: INavigationItem[] = [
+  { 
+    img: "",
+    name: "Trees",
+    path: Path.PLANTS,
+    desc: "Trees",
+  },
+]

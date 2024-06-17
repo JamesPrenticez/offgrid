@@ -2,8 +2,12 @@ export enum Path {
   HOME = '/',
   ADMIN='/admin',
 
-  WATER="/water",
   PLANTS="/plants",
+  PLANTS_TREES="/plants/trees",
+
+
+
+  WATER="/water",
   BUIDLING="/building",
   ELECTRICITY="/electricity",
 

@@ -4,5 +4,6 @@ export interface INavigationItem {
   name: string;
   desc: string;
   path: Path;
-  icon: string;
+  icon?: string;
+  img?: string;
 }

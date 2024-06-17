@@ -9,7 +9,7 @@ interface Props {
 function Hamburger({ isOpen, toggleIsOpen}: Props){
   return (
     <button 
-      className={`outline-none antialiased ring-[4px] rounded-md ${isOpen ? 'ring-stone-300' : 'ring-transparent'}`}
+      className={`h-[28px] w-[28px] outline-none antialiased ring-[4px] rounded-md ${isOpen ? 'ring-stone-300' : 'ring-transparent'}`}
       onClick={toggleIsOpen}
       aria-label="Navigation Menu"
     >
