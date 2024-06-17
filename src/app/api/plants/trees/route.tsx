@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
   const imageFile = formData.get('image') as string | File;
   
   if (imageFile instanceof File) {
-    const filename = botanical_name; // Use a suitable filename here
+    const filename = botanical_name; // Use a suitable filename here // TODO change to common name - trim, underscore and sanatise
     const extension = path.extname(imageFile.name); // Extract the file extension from the original file name
     const filePath = path.join(uploadDir, filename + extension); // Append the extension to the file path
     const buffer = Buffer.from(await imageFile.arrayBuffer());

@@ -18,12 +18,24 @@ const config = {
       },
     },
     extend: {
+      height: {
+        "screen-5rem": "calc(100vh - 5rem)",
+        "screen-4rem": "calc(100vh - 4rem)",
+      },
+			minHeight:{
+        "screen-5rem": "calc(100vh - 5rem)",
+        "screen-4rem": "calc(100vh - 4rem)",
+      },
+      maxWidth:{
+        "8xl": "90rem",
+        "9xl": "100rem"
+      },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        background: "#f9fafb",
+        foreground: "#0c0a09",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

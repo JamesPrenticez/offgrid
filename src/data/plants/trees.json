@@ -5,6 +5,14 @@
     "botanical_name": "Quercus palustris",
     "species": "Oak",
     "category": "Deciduous",
-    "image": "/uploads/Quercus palustris.jpg"
+    "image": "/uploads/pin_oak.jpg"
+  },
+  {
+    "id": 2,
+    "common_name": "Eastern Cottonwood",
+    "botanical_name": "Populus deltoides",
+    "species": "Poplar",
+    "category": "Deciduous",
+    "image": "/uploads/Populus deltoides.webp"
   }
 ]
