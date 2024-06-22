@@ -1,12 +1,18 @@
 import React, { type ReactElement } from 'react'
-import TreeForm from '@/components/forms/treeForm'
+import { IPlant } from '@/models';
+import { PlantList } from '@/components/lists';
+import PlantForm from '@/components/forms/PlantForm';
+import { axiosInstance } from '@/lib/axiosInstance';
 
-function DataEntry(): ReactElement {
+async function DataEntry(): Promise<ReactElement> {
+  const { data } = await axiosInstance.get<IPlant[]>("/plants/trees");
+
   return (
     <div>
-      <TreeForm />
+      <PlantForm slug="trees"/>
+      <PlantList title="Trees" data={data} />
     </div>
   )
 }
 
-export default DataEntry
+export default DataEntry;

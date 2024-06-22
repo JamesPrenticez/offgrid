@@ -1,22 +1,17 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, type ReactElement, type ChangeEvent, type FormEvent } from 'react';
 import { Button, Input } from "@/components/ui"
+import { IPlant } from '@/models';
 
-interface Tree {
-  id: number;
-  common_name: string;
-  botanical_name: string;
-  species: string;
-  category: string;
-  image: string;
+interface Props {
+  slug: string;
 }
 
-const TreeForm: React.FC = () => {
-  const [trees, setTrees] = useState<Tree[]>([]);
+function PlantForm({slug}: Props): ReactElement {
+  const [plants, setPlants] = useState<IPlant[]>([]);
 
-  // const [formData, setFormData] = useState<Omit<Tree, 'id'>>({
-  const [formData, setFormData] = useState<Partial<Tree & { imageFile: File | null }>>({
+  const [formData, setFormData] = useState<Partial<IPlant & { imageFile: File | null }>>({
     common_name: '',
     botanical_name: '',
     species: '',
@@ -24,17 +19,7 @@ const TreeForm: React.FC = () => {
     imageFile: null,
   });
 
-  useEffect(() => {
-    const fetchTrees = async () => {
-      const response = await fetch('/api/plants/trees');
-      const data = await response.json();
-      setTrees(data);
-    };
-
-    fetchTrees();
-  }, []);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -42,7 +27,7 @@ const TreeForm: React.FC = () => {
     });
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setFormData({
         ...formData,
@@ -51,7 +36,7 @@ const TreeForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     const formDataToSend = new FormData();
@@ -65,14 +50,14 @@ const TreeForm: React.FC = () => {
       }
     });
 
-    const response = await fetch('/api/plants/trees', {
+    const response = await fetch(`'/api/plants/${slug}'}`, {
       method: 'POST',
       body: formDataToSend,
     });
 
-    const newTree: Tree = await response.json();
+    const newPlant: IPlant = await response.json();
 
-    setTrees([...trees, newTree]);
+    setPlants([...plants, newPlant]);
 
     setFormData({
       common_name: '',
@@ -131,22 +116,8 @@ const TreeForm: React.FC = () => {
         />
         <Button type="submit">Add Tree</Button>
       </form>
-
-      <div>
-        <h2 className="text-3xl font-bold">Tree List</h2>
-        <ul>
-          {trees.map((tree) => (
-            <li key={tree.id}>
-              {tree.common_name} ({tree.botanical_name}) - {tree.species} [{tree.category}]
-              <br />
-              {tree.image && <img src={tree.image} alt={tree.common_name} width="100" />} 
-            </li>
-          ))}
-        </ul>
-      </div>
-
     </div>
   );
 };
 
-export default TreeForm;
+export default PlantForm;

@@ -6,21 +6,21 @@ import { Path, type INavigationItem } from "@/models";
 import { capitalizeFirstLetter } from "@/utils";
 
 interface Props {
-  isOpen: boolean;
-  toggleIsOpen: () => void;
+  isMenuOpen: boolean;
+  toggleIsMenuOpen: () => void;
   menuItems: INavigationItem[];
 }
 
-function RightNav({ isOpen, toggleIsOpen, menuItems }: Props) {
+function RightNav({ isMenuOpen, toggleIsMenuOpen, menuItems }: Props) {
   return (
     <nav 
       className={`fixed inset-[64px_0_0_0] md:inset-[80px_0_0_0] bg-popover/80 z-50 
-        ${isOpen ? "block" : "hidden" }
+        ${isMenuOpen ? "block" : "hidden" }
       `}
       onClick={(e) => {
         const target = e.target as HTMLElement;
         if (target.id === "right-menu") return;
-        toggleIsOpen();
+        toggleIsMenuOpen();
       }}
     >
       <div id="right-menu" className="absolute right-0 bg-muted h-full w-full md:w-[450px] p-6 space-y-2 text-muted flex flex-col grow ">

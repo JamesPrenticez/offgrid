@@ -9,13 +9,13 @@ import { navigationItems } from "@/app/constants/project";
 import Link from "next/link";
 
 function Navbar(): ReactElement {
-  const [isOpen, toggleIsOpen] = useState<boolean>(false)
+  const [isMenuOpen, toggleIsMenuOpen] = useState<boolean>(false)
 
   return (
     <>
       <NavbarWrapper>
         <div className="flex">
-          <CompanyLogo onClick={() => toggleIsOpen(false)}/>
+          <CompanyLogo onClick={() => toggleIsMenuOpen(false)}/>
           <CompanyName />
         </div>
 
@@ -33,14 +33,14 @@ function Navbar(): ReactElement {
             </h2>
           </Link>
           <Hamburger 
-            isOpen={isOpen}
-            toggleIsOpen={() => { toggleIsOpen((prevState) => !prevState) }}
+            isMenuOpen={isMenuOpen}
+            toggleIsMenuOpen={() => { toggleIsMenuOpen((prevState) => !prevState) }}
           />
         </div>
 
         <RightNav
-          isOpen={isOpen}
-          toggleIsOpen={() => { toggleIsOpen((prevState) => !prevState) }}
+          isMenuOpen={isMenuOpen}
+          toggleIsMenuOpen={() => { toggleIsMenuOpen((prevState) => !prevState) }}
           menuItems={navigationItems}
         />
 
