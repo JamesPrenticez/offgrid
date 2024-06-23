@@ -1,4 +1,3 @@
-export * from "./paths"
+export * from "./admin"
 export * from "./project"
-export * from "./users"
 export * from "./plants"

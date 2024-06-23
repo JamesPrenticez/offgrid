@@ -2,6 +2,7 @@ import { INavigationItem, Path } from "@/models";
 
 export const project = {
   name: "Off Grid",
+  desc: "library of knowledge for those seeking to live off grid in Aotearoa"
 };
 
 export const navigationItems: INavigationItem[] = [

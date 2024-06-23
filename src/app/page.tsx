@@ -1,9 +1,10 @@
 import React, { type ReactElement } from 'react';
 import Link from 'next/link';
-import { navigationItems } from './constants/project';
+import { navigationItems, project } from './constants/project';
 import { capitalizeFirstLetter } from '@/utils';
 import { ExternalLinkIcon } from '@/components/icons';
 import { Button } from '@/components/ui';
+import { NavLinkList } from '@/components/lists';
  
 export default function Home(): ReactElement {
   return (
@@ -13,33 +14,14 @@ export default function Home(): ReactElement {
           Welcome
         </h1>
         <h2 className="text-3xl mb-2 ml-1">
-          to the library of knowledge for those seeking to live off grid in Aotearoa
+          to the {project.desc}
         </h2>
 
         <Hero />
-
-        <div className="mx-auto grid text-center lg:w-full lg:grid-cols-4 lg:text-left ">
-          {navigationItems.map((item) => (
-            <Link
-              href={item.path}
-              className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-              rel="noopener noreferrer"
-            >
-              <h2 className="mb-3 text-2xl font-semibold">
-                {item.icon}&nbsp;{capitalizeFirstLetter(item.name)}&nbsp;
-                <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                  -&gt;
-                </span>
-              </h2>
-              <p className="m-0 max-w-[30ch] text-sm opacity-50">
-                {item.desc}
-              </p>
-            </Link>
-          ))}
-        </div>
-
+        <NavLinkList data={navigationItems} />
+  
         <div className='bg-gray-200 h-[30rem] my-4'>
-        Photo of the day
+          Photo of the day
         </div>
 
     </>
